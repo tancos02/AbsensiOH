@@ -8,15 +8,16 @@
 using namespace std;
 
 int main() {
-    Orang ListOrang[200];
-    bool isExit = false;
-    int count = 0;
+    Orang ListOrang[200];  // Array yang menyimpan semua data, masih bisa diubah, tidak harus array
+    bool isExit = false;  // Boolean yang menandakan jika input data selesai
+    int count = 0; // Total jemaat yang hadir
     std::cout << "Selamat datang di absensi OH\n";
-    std::string n,iL,tglLhr,exit,ang,data;
-    //cout << "Masukkan nama file yang akan menyimpan data : ";
-    //cin >> fname;
+    std::string n,iL,tglLhr,exit,ang,data,fname; // Variabel sementara
+    cout << "Masukkan nama file yang akan menyimpan data : ";
+    cin >> fname;
+    // Kedua line di atas merupakan tugas yang harus diperbaiki
     ofstream outf;
-    outf.open("trial.txt");
+    outf.open(fname.c_str());
     while(isExit == false){
         std::cout << "Nama : ";
         std::cin >> n;
@@ -42,5 +43,6 @@ int main() {
     for(int i=0;i<count;i++){
         std::cout << ListOrang[i].getNama() << " " << ListOrang[i].getAngkatan() << " " << ListOrang[i].getIdLine() << " " << ListOrang[i].getTglLahir() << std::endl; 
     }
+    cout << "Total jemaat yang hadir : " << count << endl;
     outf.close();
 }
